@@ -1,2 +1,2 @@
 # Object Detection
- Object Detection using Yolo algorithm for 
+ Object Detection using Yolo algorithm
