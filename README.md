@@ -2,7 +2,11 @@
  Object Detection using Yolo algorithm
 ## 1 - Problem Statement
 
-The project aims to detect various objects and draw a bounding box around them.
+The project aims to detect various objects and draw a bounding box around them. 
+
+We would like to especially thank [drive.ai](https://www.drive.ai/) for providing this dataset!. For custom data you can gather all your images into a folder and have them labelled by drawing bounding boxes around every car you found. Here's an example of what your bounding boxes look like.
+
+<img src="nb_images/box_label.png" style="width:500px;height:250;">
 
 ## 2 - YOLO
 
