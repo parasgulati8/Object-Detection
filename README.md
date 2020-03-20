@@ -65,6 +65,14 @@ We are trying to detect 80 classes, and are using 5 anchor boxes. We have gather
 The car detection dataset has 720x1280 images, which we've pre-processed into 608x608 images.
  
 Load an existing pretrained Keras YOLO model stored in "yolo.h5". (These weights come from the official YOLO website, and were converted using a function written by Allan Zelener. Technically, these are the parameters from the "YOLOv2" model)
+
+This model converts a preprocessed batch of input images (shape: (m, 608, 608, 3)) into a tensor of shape (m, 19, 19, 5, 85) that needs to pass through non-trivial processing and conversion.
+
+`yolo_outputs` gives all the predicted boxes of yolo_model in the correct format. To perform filtering and select only the best boxes, we call `yolo_eval`
+
+The final output of the model is an image with all the objects bounded by rectangular boxes and also returns the prediction probabilities corresponding to each object detected. For example :
+
+![](https://github.com/parasgulati8/Object-Detection/blob/master/out/test.jpg)
  
  ## Conclusion
  - YOLO is a state-of-the-art object detection model that is fast and accurate
