@@ -1,6 +1,6 @@
 # Object Detection
  Object Detection using Yolo algorithm
-## 1 - Problem Statement
+## Problem Statement
 
 The project aims to detect various objects and draw a bounding box around them. 
 
@@ -8,7 +8,7 @@ We would like to especially thank [drive.ai](https://www.drive.ai/) for providin
 
 <img src="nb_images/box_label.png" style="width:500px;height:250;">
 
-## 2 - YOLO
+## YOLO
 
 YOLO ("you only look once") is a popular algoritm because it achieves high accuracy while also being able to run in real-time. This algorithm "only looks once" at the image in the sense that it requires only one forward propagation pass through the network to make predictions. After non-max suppression, it then outputs recognized objects together with the bounding boxes.
 
@@ -33,7 +33,7 @@ In total, the model predicts: 19x19x5 = 1805 boxes just by looking once at the i
 
 In the figure above, we plotted only boxes that the model had assigned a high probability to, but this is still too many boxes. To filter the algorithm's output we use non-max suppression.
 
-### 2.2 - Filtering with a threshold on class scores
+### Filtering with a threshold on class scores
 
 We would like to get rid of any box for which the class "score" is less than a chosen threshold. 
 
@@ -45,7 +45,7 @@ We create a mask by using a threshold. For example : `([0.9, 0.3, 0.4, 0.5, 0.1]
 
 TensorFlow is used to apply the mask to box_class_scores, boxes and box_classes to filter out the boxes we don't want. We are left with just the subset of boxes we want to keep.
 
-### 2.3 - Non-max suppression ###
+### Non-max suppression ###
 
 Even after filtering by thresholding over the classes scores, there will still remain a lot of overlapping boxes. A second filter for selecting the right boxes is called non-maximum suppression (NMS). 
 
@@ -59,11 +59,11 @@ The key steps for NMS are:
 
 This will remove all boxes that have a large overlap with the selected boxes. Only the "best" boxes remain.
 
-### 2.4 Wrapping up the filtering
+### Wrapping up the filtering
 `yolo_eval()` takes the output of the YOLO encoding and filters the boxes using score threshold and NMS.
 
 
-## 3 - Test YOLO pretrained model on images
+## Test YOLO pretrained model on images
 We are trying to detect 80 classes, and are using 5 anchor boxes. We have gathered the information about the 80 classes and 5 boxes in two files "coco_classes.txt" and "yolo_anchors.txt".
  
 The car detection dataset has 720x1280 images, which we've pre-processed into 608x608 images.
