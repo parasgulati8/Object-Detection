@@ -50,7 +50,7 @@ TensorFlow is used to apply the mask to box_class_scores, boxes and box_classes 
 Even after filtering by thresholding over the classes scores, there will still remain a lot of overlapping boxes. A second filter for selecting the right boxes is called non-maximum suppression (NMS). 
 
 <img src="nb_images/non-max-suppression.png" style="width:500px;height:400;">
-<caption><center> <u> **Figure 7** </u>: In this example, the model has predicted 3 cars, but it's actually 3 predictions of the same car. Running non-max suppression (NMS) will select only the most accurate (highest probabiliy) one of the 3 boxes. <br> </center></caption>
+<caption><center>In this example, the model has predicted 3 cars, but it's actually 3 predictions of the same car. Running non-max suppression (NMS) will select only the most accurate (highest probabiliy) one of the 3 boxes. <br> </center></caption>
 
 The key steps for NMS are: 
 1. Select the box that has the highest score.
